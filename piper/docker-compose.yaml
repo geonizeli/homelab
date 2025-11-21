@@ -1,0 +1,19 @@
+services:
+  piper:
+    image: lscr.io/linuxserver/piper:1.5.3
+    container_name: piper
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - PIPER_VOICE=pt_BR-faber-medium
+      - PIPER_LENGTH=1.0 #optional
+      - PIPER_NOISE=0.667 #optional
+      - PIPER_NOISEW=0.333 #optional
+      - PIPER_SPEAKER=0 #optional
+      - PIPER_PROCS=1 #optional
+    volumes:
+      - ${CONFIG_DIR}/piper:/config
+    ports:
+      - ${PORT}:10200
+    restart: unless-stopped
