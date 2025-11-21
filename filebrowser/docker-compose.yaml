@@ -1,0 +1,13 @@
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    user: "0:0"
+    volumes:
+      - ${CONFIG_DIR}/filebrowser/filebrowser.db:/database.db
+      - ${CONFIG_DIR}/filebrowser/settings.json:/config.json
+      - ${MEDIA_LIBRARY_DIR}:/srv
+    ports:
+      - ${PORT}:80
+    command: ["--noauth"]
+    restart: unless-stopped
