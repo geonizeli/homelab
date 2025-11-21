@@ -1,0 +1,8 @@
+services:
+  morphos:
+    container_name: morphos
+    ports:
+      - ${PORT}:8080
+    image: ghcr.io/danvergara/morphos-server:0.6.0
+    restart: unless-stopped
+    stop_grace_period: 1m
