@@ -1,0 +1,14 @@
+services:
+  profilarr:
+      image: santiagosayshey/profilarr:latest
+      container_name: profilarr
+      ports:
+        - ${PORT}:6868
+      volumes:
+        - ${CONFIG_DIR}/arr/profilarr/config:/config
+      environment:
+        - PUID=0
+        - PGID=0
+        - UMASK=022
+        - TZ=${TZ}
+      restart: unless-stopped

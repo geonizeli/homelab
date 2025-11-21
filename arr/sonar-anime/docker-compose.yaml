@@ -1,0 +1,14 @@
+services:
+  sonarr-anime:
+    container_name: sonarr-anime
+    image: linuxserver/sonarr
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+    volumes:
+      - ${CONFIG_DIR}/arr/sonarr-anime/config:/config
+      - ${MEDIA_LIBRARY_DIR}:/media_library
+    ports:
+      - ${PORT}:8989
+    restart: unless-stopped

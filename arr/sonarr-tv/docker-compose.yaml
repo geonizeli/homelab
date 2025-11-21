@@ -1,0 +1,14 @@
+services:
+  sonarr-tv:
+    container_name: sonarr-tv
+    image: linuxserver/sonarr
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+    volumes:
+      - ${CONFIG_DIR}/arr/sonarr-tv/config:/config
+      - ${MEDIA_LIBRARY_DIR}:/media_library
+    ports:
+      - ${PORT}:8989
+    restart: unless-stopped

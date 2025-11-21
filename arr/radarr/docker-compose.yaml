@@ -1,0 +1,14 @@
+services:
+  radarr:
+    container_name: radarr
+    image: linuxserver/radarr
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+    volumes:
+      - ${CONFIG_DIR}/arr/radarr/config:/config
+      - ${MEDIA_LIBRARY_DIR}:/media_library
+    ports:
+      - ${PORT}:7878
+    restart: unless-stopped

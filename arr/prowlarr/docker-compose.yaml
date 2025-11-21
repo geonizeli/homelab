@@ -1,0 +1,19 @@
+services:
+  prowlarr:
+    container_name: prowlarr
+    image: linuxserver/prowlarr
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+    volumes:
+      - ${CONFIG_DIR}/arr/prowlarr/config:/config
+      - ${MEDIA_LIBRARY_DIR}:/media_library
+    ports:
+      - ${PORT}:9696
+    restart: unless-stopped
+
+  indexer_proxy:
+    container_name: flaresolverr
+    image: flaresolverr/flaresolverr
+    restart: unless-stopped
