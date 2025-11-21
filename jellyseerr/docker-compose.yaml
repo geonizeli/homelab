@@ -1,0 +1,9 @@
+services:
+  server:
+    container_name: jellyseerr
+    image: fallenbagel/jellyseerr:2.7.3
+    volumes:
+      - ${CONFIG_DIR}/jellyseerr/config:/app/config
+    restart: unless-stopped
+    ports:
+     - ${PORT}:5055
