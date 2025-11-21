@@ -1,0 +1,11 @@
+services:
+  mqtt:
+    container_name: mqtt
+    restart: unless-stopped
+    image: eclipse-mosquitto:2.0.22
+    ports:
+      - ${PORT}:1883
+    volumes:
+      - ${CONFIG_DIR}/mosquitto/config:/mosquitto/config
+      - ${CONFIG_DIR}/mosquitto/data:/mosquitto/data
+      - ${CONFIG_DIR}/mosquitto/log:/mosquitto/log
