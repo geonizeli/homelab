@@ -1,0 +1,17 @@
+services:
+  jellyfin:
+    container_name: jellyfin
+    image: linuxserver/jellyfin
+    restart: unless-stopped
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      - PUID=0
+      - PGID=0
+      - JELLYFIN_PublishedServerUrl="${JELLYFIN_PUBLISHED_SERVER_URL}"
+    volumes:
+      - ${CONFIG_DIR}/jellyfin/config:/config
+      - ${MEDIA_LIBRARY_DIR}:/media_library
+    ports:
+      - ${PORT}:8096
+      # - 7359:7359/udp # Service auto-discovery
