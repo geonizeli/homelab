@@ -1,0 +1,10 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ${CONFIG_DIR}/homepage:/app/config
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: "*"
