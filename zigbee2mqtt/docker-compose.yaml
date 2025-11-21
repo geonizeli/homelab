@@ -1,0 +1,11 @@
+services:
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt:2.6.2
+    restart: unless-stopped
+    volumes:
+      - ${CONFIG_DIR}/zigbee2mqtt:/app/data
+    ports:
+      - ${PORT}:8080
+    environment:
+      - TZ=${TZ}
