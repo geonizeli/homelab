@@ -1,0 +1,14 @@
+services:
+  reverse-proxy:
+    container_name: traefik
+    network_mode: host
+    image: traefik:v3.4.3
+    restart: unless-stopped
+    environment:
+      - CF_API_EMAIL=${CF_API_EMAIL}
+      - CF_API_KEY=${CF_API_KEY}
+    volumes:
+      - ${CONFIG_DIR}/traefik/config/traefik.yaml:/etc/traefik/traefik.yaml:ro
+      - ${CONFIG_DIR}/traefik/config/dynamics:/etc/traefik/dynamics:ro
+      - ${CONFIG_DIR}/traefik/certs:/var/traefik/certs:rw
+      - ${CONFIG_DIR}/traefik/cache:/cache:rw
