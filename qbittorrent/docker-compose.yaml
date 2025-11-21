@@ -1,0 +1,50 @@
+services:
+  qbittorrent:
+    container_name: qbittorrent
+    image: ghcr.io/hotio/qbittorrent:release-5.1.0
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=002
+    volumes:
+      - ${CONFIG_DIR}/qbittorrent/config:/config
+      - ${CONFIG_DIR}/qbittorrent/VueTorrent:/VueTorrent
+      - ${MEDIA_LIBRARY_DIR}:/media_library
+    restart: unless-stopped
+    ports:
+      - ${PORT_1}:8080
+    hostname: media-server-qbittorrent
+    networks:
+      macvlan_net:
+        mac_address: ca:8f:48:73:96:5c
+        ipv4_address: 172.16.8.10
+
+  qbittorrent-perpetuus:
+    container_name: qbittorrent-perpetuus
+    image: ghcr.io/hotio/qbittorrent:release-5.1.0
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=002
+    volumes:
+      - ${CONFIG_DIR}/qbittorrent-perpetuus/config:/config
+      - ${CONFIG_DIR}/qbittorrent/VueTorrent:/VueTorrent
+      - ${MEDIA_LIBRARY_DIR}:/media_library
+    restart: unless-stopped
+    ports:
+      - ${PORT_2}:8080
+    hostname: qbittorrent-perpetuus
+    networks:
+      macvlan_net:
+        mac_address: 94:6a:8b:d0:77:f6
+        ipv4_address: 172.16.8.20
+
+networks:
+  macvlan_net:
+    driver: macvlan
+    driver_opts:
+      parent: ${MACVLAN_PARENT_INTERFACE}
+    ipam:
+      config:
+        - subnet: ${MACVLAN_SUBNET}
+          gateway: ${MACVLAN_GATEWAY}
