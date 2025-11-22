@@ -1,0 +1,9 @@
+services:
+  suggestarr:
+    container_name: suggestarr
+    image: ciuse99/suggestarr:latest
+    volumes:
+      - ${CONFIG_DIR}/arr/suggestarr/config:/app/config/config_files
+    ports:
+      - ${PORT}:5000
+    restart: unless-stopped
