@@ -1,14 +1,9 @@
 services:
   suggestarr:
     container_name: suggestarr
-    image: linuxserver/suggestarr
-    environment:
-      - PUID=0
-      - PGID=0
-      - UMASK=022
+    image: ciuse99/suggestarr:latest
     volumes:
-      - ${CONFIG_DIR}/arr/suggestarr/config:/config
-      - ${MEDIA_LIBRARY_DIR}:/media_library
+      - ${CONFIG_DIR}/arr/suggestarr/config:/app/config/config_files
     ports:
-      - ${PORT}:6901
+      - ${PORT}:5000
     restart: unless-stopped
