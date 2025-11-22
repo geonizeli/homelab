@@ -47,6 +47,7 @@ A collection of powerful tools and applications that I find useful.
 | :--- | :--- |
 | **Immich** | A self-hosted solution for backing up and viewing photos and videos, keeping my memories private. |
 | **n8n** | A powerful workflow automation tool that connects different services and APIs to create custom automations. |
+| **pgAdmin4** | A web-based administration tool for PostgreSQL databases, providing a powerful interface for database management. |
 | **Stirling-PDF** | A versatile web-based tool for all kinds of PDF manipulation. |
 | **File Browser** | A simple and effective web-based file manager. |
 | **Frigate** | A smart Network Video Recorder (NVR) with real-time AI object detection for my security cameras. |
