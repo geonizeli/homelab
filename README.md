@@ -33,6 +33,7 @@ This collection of services is focused on media management, streaming, and acqui
 | &nbsp;&nbsp; • **Sonarr** | Manages my TV show and anime collections. |
 | &nbsp;&nbsp; • **Prowlarr** | Manages indexers for the other *Arr services. |
 | &nbsp;&nbsp; • **Profilarr** | Syncs settings and profiles across the *Arr stack. |
+| &nbsp;&nbsp; • **Suggestarr** | Provides content suggestions and recommendations. |
 | **qBittorrent** | A reliable and lightweight BitTorrent client for acquiring content. |
 | **MeTube** | A web GUI for downloading video and audio from YouTube and other sites. |
 
