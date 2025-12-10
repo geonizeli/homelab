@@ -20,8 +20,6 @@ services:
       - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
     ports:
       - ${PORT}:5678
-    links:
-      - postgres
     volumes:
       - n8n_data:/home/node/.n8n
 
