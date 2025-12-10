@@ -21,7 +21,4 @@ services:
     ports:
       - ${PORT}:5678
     volumes:
-      - n8n_data:/home/node/.n8n
-
-volumes:
-  n8n_data:
+      - ${CONFIG_DIR}/n8n/config:/home/node/.n8n
