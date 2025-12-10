@@ -24,9 +24,6 @@ services:
       - postgres
     volumes:
       - n8n_data:/home/node/.n8n
-    depends_on:
-      postgres:
-        condition: service_healthy
 
 volumes:
   n8n_data:
