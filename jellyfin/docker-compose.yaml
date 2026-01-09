@@ -5,7 +5,8 @@ services:
     restart: unless-stopped
     devices:
       - /dev/dri:/dev/dri
-    group_add: [${RENDER_GROUP_ID}]
+    group_add: 
+      - ${RENDER_GROUP_ID}
     environment:
       - PUID=0
       - PGID=0
