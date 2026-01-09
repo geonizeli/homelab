@@ -11,6 +11,7 @@ services:
       - PUID=0
       - PGID=0
       - JELLYFIN_PublishedServerUrl="${JELLYFIN_PUBLISHED_SERVER_URL}"
+      - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
     volumes:
       - ${CONFIG_DIR}/jellyfin/config:/config
       - ${MEDIA_LIBRARY_DIR}:/media_library
